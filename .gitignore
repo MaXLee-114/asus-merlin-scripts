@@ -1,0 +1,24 @@
+# Datos personales y del entorno
+*.env
+*.conf.local
+secrets.*
+credentials.*
+
+# IPs y configuración de red personal
+inventory.*
+hosts.local
+
+# Claves y certificados
+*.pem
+*.key
+*.p12
+id_rsa*
+id_ed25519*
+
+# Logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.bak
+*~
