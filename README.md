@@ -24,10 +24,12 @@ Scripts and configuration files for Asus routers running **Merlin firmware**.
 
 ## 🔧 Tools used
 
-- [Unbound Manager](https://github.com/MartineauUK/Unbound-Merlin) — DNS with adblocking
-- [BackupMon](https://github.com/ericpaulbishop/backupmon) — Router backup
-- [rtrmon](https://github.com/ericpaulbishop/rtrmon) — Router monitor
-- [WireGuard Manager](https://github.com/Martineau/wireguard) — VPN
+Credits to the original authors:
+
+- [BACKUPMON](https://github.com/ViktorJp/BACKUPMON) — by @Jeffrey Young & @Viktor Jaep — Router backup
+- [RTRMON](https://github.com/ViktorJp/RTRMON) — by @Viktor Jaep — Router monitor
+- [KILLMON](https://github.com/ViktorJp/KILLMON) — by @Viktor Jaep — VPN kill switch monitor
+- [Unbound Manager](https://github.com/MartineauUK/Unbound-Merlin) — by @MartineauUK — DNS with adblocking
 
 ---
 
