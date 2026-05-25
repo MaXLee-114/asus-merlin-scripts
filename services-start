@@ -1,0 +1,39 @@
+#!/bin/sh
+# =============================================================
+# services-start — Asus Merlin custom startup script
+# Runs automatically after router services start
+# Compatible: Asus Merlin firmware (RT-AX86U_PRO and similar)
+# =============================================================
+
+# --- Unbound DNS Manager ---
+# Update root hints daily at 04:12
+cru a root_servers "12 4 * * * curl -o \/opt\/var\/lib\/unbound\/root\.hints https://www.internic.net/domain/named.cache" # unbound_manager
+
+# Block YouTube ads every 5 minutes
+cru a ytadblock "*/5 * * * * /opt/var/lib/unbound/adblock/gen_ytadblock.sh" # unbound_manager
+
+# Update adblock lists daily at 05:00
+cru a adblock "0 5 * * * /opt/var/lib/unbound/adblock/gen_adblock.sh" # unbound_manager
+
+# Start Unbound RPZ (Response Policy Zone) for advanced DNS blocking
+/jffs/addons/unbound/unbound_rpz.sh startup # Unbound_RPZ.sh
+
+# --- Backup ---
+# Run backup monitor daily at 03:00
+cru a RunBackupMon "0 3 * * * sh /jffs/scripts/backupmon.sh"
+
+# --- Router Monitor ---
+# Start router monitor in background
+sh /jffs/scripts/rtrmon.sh -monitor &
+
+# --- WireGuard VPN ---
+# Start WireGuard interface after 10s delay
+# Replace YOUR_WG_INTERFACE with your WireGuard interface name (e.g. wg21)
+sleep 10 && cd /jffs/addons/wireguard && sh wg_manager.sh start YOUR_WG_INTERFACE 2>/dev/null &
+
+# --- Custom Monitors ---
+# Run SAI monitor every minute
+cru a sai_monitor "* * * * * sh /jffs/scripts/sai_monitor.sh"
+
+# Run security monitor every minute
+cru a security_monitor "* * * * * sh /jffs/scripts/security_monitor.sh"
