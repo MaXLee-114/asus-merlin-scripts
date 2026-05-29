@@ -1,4 +1,6 @@
 #!/bin/sh
+# Version: 1.0
+# Last updated: 2026-05-29
 # =============================================================
 # services-start — Asus Merlin custom startup script
 # Runs automatically after router services start

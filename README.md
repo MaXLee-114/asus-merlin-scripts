@@ -5,12 +5,20 @@ Scripts and configuration files for Asus routers running **Merlin firmware**.
 > ⚠️ All scripts have been sanitized — no personal data, IPs, credentials or environment-specific information is included. Replace placeholders like `YOUR_WG_INTERFACE` with your own values.
 
 ---
+## 📁 Structure
+
+```
+asus-merlin-scripts/
+├── scripts/   # Shell scripts for the router
+├── config/    # Configuration file templates
+└── docs/      # Additional documentation
+```
 
 ## 📋 Scripts
 
-| File             | Description                                              |
-| ---------------- | -------------------------------------------------------- |
-| `services-start` | Custom startup script — runs after router services start |
+| File | Description |
+| ---- | ----------- |
+| `scripts/services-start` | Custom startup script — runs after router services start |
 
 ---
 
